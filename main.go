@@ -98,43 +98,43 @@ func UIServer() http.Handler {
 	return mux
 }
 
+/*
 func main() {
-	port := ":8181"
-	/*
-			templates := newTemplates()
+		port := ":8181"
+				templates := newTemplates()
 
-			// Serve static files
-			http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+				// Serve static files
+				http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 
-			// Handler for the root URL
-			http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
-				w.Header().Set("Content-Type", "text/html; charset=utf-8")
-				if err := templates.Render(w, "index", dagRuns); err != nil {
-					msg := fmt.Sprintf("Failed to render template: %s", err.Error())
-					http.Error(w, msg, http.StatusInternalServerError)
-				}
-			})
+				// Handler for the root URL
+				http.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {
+					w.Header().Set("Content-Type", "text/html; charset=utf-8")
+					if err := templates.Render(w, "index", dagRuns); err != nil {
+						msg := fmt.Sprintf("Failed to render template: %s", err.Error())
+						http.Error(w, msg, http.StatusInternalServerError)
+					}
+				})
 
-			http.HandleFunc("/dagruns", func(w http.ResponseWriter, _ *http.Request) {
-				w.Header().Set("Content-Type", "text/html; charset=utf-8")
-				if err := templates.Render(w, "dagruns", dagRuns); err != nil {
-					msg := fmt.Sprintf("Failed to render template: %s", err.Error())
-					http.Error(w, msg, http.StatusInternalServerError)
-				}
-			})
+				http.HandleFunc("/dagruns", func(w http.ResponseWriter, _ *http.Request) {
+					w.Header().Set("Content-Type", "text/html; charset=utf-8")
+					if err := templates.Render(w, "dagruns", dagRuns); err != nil {
+						msg := fmt.Sprintf("Failed to render template: %s", err.Error())
+						http.Error(w, msg, http.StatusInternalServerError)
+					}
+				})
 
-			http.HandleFunc("/random-status", func(w http.ResponseWriter, _ *http.Request) {
-				w.Header().Set("Content-Type", "text/plain; charset=utf-8")
-				w.Write([]byte(randomStatus()))
-			})
+				http.HandleFunc("/random-status", func(w http.ResponseWriter, _ *http.Request) {
+					w.Header().Set("Content-Type", "text/plain; charset=utf-8")
+					w.Write([]byte(randomStatus()))
+				})
 
-			http.HandleFunc("/rand", func(w http.ResponseWriter, _ *http.Request) {
-				fmt.Fprintf(w, "%d", rand.Intn(100)+8)
-			})
+				http.HandleFunc("/rand", func(w http.ResponseWriter, _ *http.Request) {
+					fmt.Fprintf(w, "%d", rand.Intn(100)+8)
+				})
 
-		log.Println("Starting server on ", port)
-		if err := http.ListenAndServe(port, UIServer()); err != nil {
-			log.Fatalf("Server failed to start: %v", err)
-		}
-	*/
+			log.Println("Starting server on ", port)
+			if err := http.ListenAndServe(port, UIServer()); err != nil {
+				log.Fatalf("Server failed to start: %v", err)
+			}
 }
+*/

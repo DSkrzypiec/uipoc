@@ -1,0 +1,53 @@
+{{ block "index" . }}
+<DOCTYPE html>
+    <head>
+        <title>ppacer ui</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <script
+            src="https://unpkg.com/htmx.org@2.0.1"
+            integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <img src="/assets/logo.svg" alt="logo" style="width: 100px; height: auto;">
+        <h3 hx-get="/rand" hx-trigger="load">-1</h3>
+        <div id="crap"><h2>crap</h2></div>
+        <button hx-get="/rand" hx-target="#crap">HIT ME</button>
+
+        {{ template "dagruns" . }}
+    </body>
+</html>
+{{ end }}
+
+
+{{ block "dagruns" . }}
+    <div id="dagruns" style="display: flex; flex-direction: column">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Dag ID</th>
+                    <th>Schedule</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range . }}
+                <tr>
+                    <td>{{ .Id }}</td>
+                    <td>{{ .DagId }}</td>
+                    <td>{{ .Schedule }}</td>
+                    <td id="status-{{ .Id }}" hx-get="/random-status" hx-trigger="every 1s">{{ .Status }}</td>
+                </tr>
+                {{ else }}
+                <tr>
+                    <td colspan="3">No data available</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+{{ end }}
+
